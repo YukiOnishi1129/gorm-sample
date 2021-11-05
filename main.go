@@ -70,7 +70,7 @@ func index(w http.ResponseWriter, rq *http.Request) {
 	// Find(&モデル配列)
 	db.Where("group_id > 0").Order("created_at desc").Limit(10).Find(&pl)
 	var gl []my.Group
-	db.Where("created_at desc").Limit(10).Find(&gl)
+	db.Order("created_at desc").Limit(10).Find(&gl)
 
 	item := struct {
 		Title string
